@@ -21,7 +21,7 @@ pipeline{
             steps{
                 sh "pwd"
                 dir('Infra'){
-                    sh "pwd"
+                    sh "pwd; ls"
                 }
                 sh "cd Infra; ls"
                 // sh "terraform init"
