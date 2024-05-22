@@ -13,6 +13,7 @@ pipeline{
         stage('Script'){
             steps{
                 sh "echo Hello World"
+                sh "ls; pwd"
             }
         }
     }
