@@ -16,5 +16,23 @@ pipeline{
                 sh "ls; pwd"
             }
         }
+
+        stage('Terraform Initialization'){
+            steps{
+                sh "cd Infra"
+                sh "terraform init"
+            }
+        }
+
+        stage('SonarQube analysis') {
+          steps {
+            script {
+                scannerHome = tool 'SonarCloud'// must match the name of an actual scanner installation directory on your Jenkins build agent
+            }
+            withSonarQubeEnv('SonarCloud') {
+              sh "${scannerHome}/bin/sonar-scanner"
+            }
+          }
+        }
     }
 }
