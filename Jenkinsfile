@@ -19,12 +19,9 @@ pipeline{
 
         stage('Terraform Initialization'){
             steps{
-                sh "pwd"
                 dir('Infra'){
-                    sh "pwd; ls"
+                    sh "terraform init"
                 }
-                sh "cd Infra; ls"
-                // sh "terraform init"
             }
         }
 
