@@ -31,18 +31,18 @@ pipeline{
                 scannerHome = tool 'SonarCloud'// must match the name of an actual scanner installation directory on your Jenkins build agent
             }
             withSonarQubeEnv('SonarCloud') {
-            //   sh "${scannerHome}/bin/sonar-scanner "+
-            //      "-Dsonar.organization=maazpatel-git "+
-            //      "-Dsonar.projectKey=maazpatel-git_jenkins-terraform "+
-            //      "-Dsonar.sources=. "+
-            //      "-Dsonar.host.url=https://sonarcloud.io"
-              sh '''
-                ${scannerHome}/bin/sonar-scanner \
-                 -Dsonar.organization=maazpatel-git \
-                 -Dsonar.projectKey=maazpatel-git_jenkins-terraform \
-                 -Dsonar.sources=. \
-                 -Dsonar.host.url=https://sonarcloud.io
-              '''
+              sh "${scannerHome}/bin/sonar-scanner "+
+                 "-Dsonar.organization=maazpatel-git "+
+                 "-Dsonar.projectKey=maazpatel-git_jenkins-terraform "+
+                 "-Dsonar.sources=. "+
+                 "-Dsonar.host.url=https://sonarcloud.io"
+            //   sh '''
+            //     ${scannerHome}/bin/sonar-scanner \
+            //      -Dsonar.organization=maazpatel-git \
+            //      -Dsonar.projectKey=maazpatel-git_jenkins-terraform \
+            //      -Dsonar.sources=. \
+            //      -Dsonar.host.url=https://sonarcloud.io
+            //   '''
             }
           }
         }
