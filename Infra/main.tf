@@ -52,23 +52,23 @@ resource "azurerm_network_security_group" "testingEvn_nsg" {
 }
 
 # Create Network Security Group and rule
-resource "azurerm_network_security_group" "testingEvn_nsg" {
-  name                = "myTestingEnvNetworkSecurityGroup"
-  location            = data.azurerm_resource_group.maaz_rg.location
-  resource_group_name = data.azurerm_resource_group.maaz_rg.name
+# resource "azurerm_network_security_group" "testingEvn_nsg" {
+#   name                = "myTestingEnvNetworkSecurityGroup"
+#   location            = data.azurerm_resource_group.maaz_rg.location
+#   resource_group_name = data.azurerm_resource_group.maaz_rg.name
 
-  security_rule {
-    name                       = "HTTP"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Any"
-    source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
-}
+#   security_rule {
+#     name                       = "HTTP"
+#     priority                   = 100
+#     direction                  = "Inbound"
+#     access                     = "Allow"
+#     protocol                   = "Any"
+#     source_port_range          = "*"
+#     destination_port_range     = "*"
+#     source_address_prefix      = "*"
+#     destination_address_prefix = "*"
+#   }
+# }
 
 # Creating Network interface
 resource "azurerm_network_interface" "testingEvn_nic" {
