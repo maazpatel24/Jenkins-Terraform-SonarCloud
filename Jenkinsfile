@@ -17,13 +17,13 @@ pipeline{
             }
         }
 
-        stage('Terraform Initialization'){
-            steps{
-                dir('Infra'){
-                    sh "terraform init"
-                }
-            }
-        }
+        // stage('Terraform Initialization'){
+        //     steps{
+        //         dir('Infra'){
+        //             sh "terraform init"
+        //         }
+        //     }
+        // }
 
         stage('SonarQube analysis') {
           steps {
