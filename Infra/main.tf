@@ -43,9 +43,9 @@ resource "azurerm_network_security_group" "testingEvn_nsg" {
     priority                   = 100
     direction                  = "Inbound"
     access                     = "Allow"
-    protocol                   = "Tcp"
+    protocol                   = "Any"
     source_port_range          = "*"
-    destination_port_range     = "80"
+    destination_port_range     = "*"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
