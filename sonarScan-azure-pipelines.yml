@@ -15,12 +15,16 @@ steps:
       ls -ahl
       echo "PRId: $(System.PullRequest.PullRequestId)"
 
-# - task: SonarCloudPrepare@1
-#   inputs:
-#     SonarCloud: 'git-sonarCloud-Connection'
-#     organization: 'maazpatel-git'
-#     scannerMode: 'CLI'
-#     configMode: 'file'
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'git-sonarCloud-Connection'
+    organization: 'maazpatel-git'
+    scannerMode: 'CLI'
+    configMode: 'file'
+    extraProperties: |
+      Dsonar.pullrequest.key=$(System.PullRequest.PullRequestId)
+      Dsonar.pullrequest.branch=$(System.PullRequest.SourceBranch)
+      Dsonar.pullrequest.base=$(System.PullRequest.TargetBranch)
 
 # - task: Bash@3
 #   inputs:
