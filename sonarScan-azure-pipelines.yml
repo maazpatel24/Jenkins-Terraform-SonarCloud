@@ -20,7 +20,8 @@ steps:
     organization: 'maazpatel-git'
     scannerMode: 'CLI'
     configMode: 'file'
-    # extraProperties: |
+    extraProperties: |
+      Dsonar.branch.name=dev
     #   Dsonar.pullrequest.key=$(System.PullRequest.PullRequestId)
     #   Dsonar.pullrequest.branch=$(System.PullRequest.SourceBranch)
     #   Dsonar.pullrequest.base=$(System.PullRequest.TargetBranch)
