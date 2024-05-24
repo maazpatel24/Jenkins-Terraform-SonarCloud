@@ -21,10 +21,10 @@ steps:
     scannerMode: 'CLI'
     configMode: 'file'
     extraProperties: |
-      Dsonar.branch.name=dev
-    #   Dsonar.pullrequest.key=$(System.PullRequest.PullRequestId)
-    #   Dsonar.pullrequest.branch=$(System.PullRequest.SourceBranch)
-    #   Dsonar.pullrequest.base=$(System.PullRequest.TargetBranch)
+      #   Dsonar.branch.name=dev
+      Dsonar.pullrequest.key=$(System.PullRequest.PullRequestId)
+      Dsonar.pullrequest.branch=$(System.PullRequest.SourceBranch)
+      Dsonar.pullrequest.base=$(System.PullRequest.TargetBranch)
 
 
 - task: Bash@3
