@@ -1,0 +1,50 @@
+
+trigger: none
+
+pool: MAAZ
+
+steps:
+
+- task: CmdLine@2
+  displayName: 'environment listing'
+  inputs:
+    script: |
+      env | sort
+      pwd
+      ls -ahl
+
+# - task: Bash@3
+#   inputs:
+#     targetType: 'inline'
+#     script: |
+#       dotnet tool install --global dotnet-sonarscanner
+#       export SONAR_TOKEN=$(SONAR_TOKEN)
+#       dotnet sonarscanner begin \
+#         /o:maazpatel24 \
+#         /k:maazsajidpatel_azFuncApp-Try3 \
+#         /d:sonar.host.url=https://sonarcloud.io
+#       dotnet build
+#       dotnet sonarscanner end
+#     workingDirectory: './demofunction/'
+
+# - task: SonarCloudPrepare@1
+#   inputs:
+#     SonarCloud: 'sonar-cloud-connection'
+#     organization: 'maazpatel24'
+#     scannerMode: 'CLI'
+#     configMode: 'file'
+
+# - task: DotNetCoreCLI@2
+#   displayName: dotnet build
+#   inputs:
+#     command: 'build'
+#     projects: '**/*.csproj'
+#     arguments: '--output ./demofunction/publish --configuration Release'
+
+# - task: SonarCloudAnalyze@1
+#   inputs:
+#     jdkversion: 'JAVA_HOME_17_X64'
+
+# - task: SonarCloudPublish@1
+#   inputs:
+#     pollingTimeoutSec: '300'
