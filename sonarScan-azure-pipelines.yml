@@ -5,6 +5,13 @@ pool: MAAZ
 
 steps:
 
+- task: CmdLine@2
+  displayName: 'environment listing'
+  inputs:
+    script: |
+      env | sort
+      pwd
+
 # - task: Bash@3
 #   inputs:
 #     targetType: 'inline'
